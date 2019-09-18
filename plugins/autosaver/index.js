@@ -20,8 +20,10 @@ function autosave() {
     const isoDate = (new Date()).toISOString();
     const finalSaveName = conf.saveName.replace('%date', isoDate);
 
+    const timeStamp = `[${(new Date()).getHours()}:${(new Date()).getMinutes()}]`
+
     global.Brikkit.saveBricks(finalSaveName);
-    global.Brikkit.say(conf.saveMessage);
+    global.Brikkit.say(`${timeStamp} ${conf.saveMessage}`);
 }
 
 const dateRegex = `\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d_\\d\\d_\\d\\d\\.\\d\\d\\dZ`;
